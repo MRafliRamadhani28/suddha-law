@@ -26,12 +26,18 @@ jobs:
       - name: Build (static export)
         run: npm run build
 
-      - name: Deploy via FTP to cPanel
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Push build output to deploy branch
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./out/
-          server-dir: /public_html/
-          protocol: ftp
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
+          publish_branch: deploy
+          force_orphan: true
+
+      - name: Trigger cPanel Git pull
+        run: |
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" "${{ secrets.CPANEL_WEBHOOK_URL }}")
+          echo "cPanel webhook response: $STATUS"
+          if [ "$STATUS" != "200" ]; then
+            echo "Warning: cPanel webhook returned status $STATUS"
+          fi
