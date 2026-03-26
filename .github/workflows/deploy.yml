@@ -35,9 +35,11 @@ jobs:
           force_orphan: true
 
       - name: Trigger cPanel Git pull
-        if: ${{ secrets.CPANEL_WEBHOOK_URL != '' }}
+        if: ${{ env.CPANEL_WEBHOOK_URL != '' }}
+        env:
+          CPANEL_WEBHOOK_URL: ${{ secrets.CPANEL_WEBHOOK_URL }}
         run: |
-          STATUS=$(curl -s -o /dev/null -w "%{http_code}" "${{ secrets.CPANEL_WEBHOOK_URL }}")
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$CPANEL_WEBHOOK_URL")
           echo "cPanel webhook response: $STATUS"
           if [ "$STATUS" != "200" ]; then
             echo "Warning: cPanel webhook returned status $STATUS"
