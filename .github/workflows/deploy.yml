@@ -26,10 +26,12 @@ jobs:
       - name: Build (static export)
         run: npm run build
 
-      - name: Deploy ke branch deploy
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Deploy via FTP to cPanel
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out
-          publish_branch: deploy
-          force_orphan: true
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./out/
+          server-dir: /public_html/
+          protocol: ftps
