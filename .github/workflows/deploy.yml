@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main  # ganti ke 'master' jika branch utama Anda adalah master
+  workflow_dispatch: # memungkinkan trigger manual dari GitHub UI
 
 jobs:
   deploy:
