@@ -26,14 +26,10 @@ jobs:
       - name: Build (static export)
         run: npm run build
 
-      - name: Deploy ke cPanel via SFTP
-        uses: appleboy/scp-action@v0.1.7
+      - name: Deploy ke branch deploy
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          password: ${{ secrets.SSH_PASSWORD }}
-          port: 22
-          source: "out/*"
-          target: public_html/
-          strip_components: 1
-          rm: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
+          publish_branch: deploy
+          force_orphan: true
