@@ -10,8 +10,8 @@ export const companyInfo = {
   contact: {
     address: "Jl. Setrasari Kulon III No 10-12, Bandung, Jawa Barat, Indonesia 40152",
     phone: "+62-881-0806-33084",
-    whatsapp: "https://wa.me/6288108063308",
-    email: "Info@Suddha.id",
+    whatsapp: "https://wa.me/62881080633084",
+    email: "info@suddha.id",
     instagram: "https://instagram.com/suddha_lawfirm",
     linkedin: "https://linkedin.com/in/suddha-partnership-lawfirm-ba0994387",
   },
