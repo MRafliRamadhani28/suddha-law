@@ -34,12 +34,12 @@ jobs:
           publish_branch: deploy
 
       - name: Trigger cPanel Git pull
-        if: ${{ env.CPANEL_WEBHOOK_URL != '' }}
+        if: ${{ env.CPANEL_HOST != '' }}
         env:
-          CPANEL_WEBHOOK_URL: ${{ secrets.CPANEL_WEBHOOK_URL }}
+          CPANEL_HOST: ${{ secrets.CPANEL_HOST }}
+          CPANEL_USERNAME: ${{ secrets.CPANEL_USERNAME }}
+          CPANEL_API_TOKEN: ${{ secrets.CPANEL_API_TOKEN }}
         run: |
-          STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$CPANEL_WEBHOOK_URL")
-          echo "cPanel webhook response: $STATUS"
-          if [ "$STATUS" != "200" ]; then
-            echo "Warning: cPanel webhook returned status $STATUS"
-          fi
+          curl -s -o /dev/null -w "%{http_code}" \
+            -H "Authorization: cpanel $CPANEL_USERNAME:$CPANEL_API_TOKEN" \
+            "https://$CPANEL_HOST:2083/execute/VersionControl/update?name=suddha-law"
