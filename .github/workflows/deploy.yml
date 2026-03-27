@@ -43,12 +43,10 @@ jobs:
           echo "Pulling latest from remote..."
           curl -s -X POST \
             -H "Authorization: cpanel $CPANEL_USERNAME:$CPANEL_API_TOKEN" \
-            -H "Content-Type: application/json" \
-            -d '{"name":"suddha-law"}' \
+            --data-urlencode "name=suddha-law" \
             "https://$CPANEL_HOST:2083/execute/VersionControl/update"
           echo "Deploying HEAD commit..."
           curl -s -X POST \
             -H "Authorization: cpanel $CPANEL_USERNAME:$CPANEL_API_TOKEN" \
-            -H "Content-Type: application/json" \
-            -d '{"name":"suddha-law"}' \
+            --data-urlencode "name=suddha-law" \
             "https://$CPANEL_HOST:2083/execute/VersionControl/deploy"
