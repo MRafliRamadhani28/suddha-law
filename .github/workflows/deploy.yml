@@ -41,12 +41,10 @@ jobs:
           CPANEL_API_TOKEN: ${{ secrets.CPANEL_API_TOKEN }}
         run: |
           echo "Pulling latest from remote..."
-          curl -s -X POST \
+          curl -s \
             -H "Authorization: cpanel $CPANEL_USERNAME:$CPANEL_API_TOKEN" \
-            --data-urlencode "name=suddha-law" \
-            "https://$CPANEL_HOST:2083/execute/VersionControl/update"
+            "https://$CPANEL_HOST:2083/execute/VersionControl/update?name=suddha-law"
           echo "Deploying HEAD commit..."
-          curl -s -X POST \
+          curl -s \
             -H "Authorization: cpanel $CPANEL_USERNAME:$CPANEL_API_TOKEN" \
-            --data-urlencode "name=suddha-law" \
-            "https://$CPANEL_HOST:2083/execute/VersionControl/deploy"
+            "https://$CPANEL_HOST:2083/execute/VersionControl/deploy?name=suddha-law"
