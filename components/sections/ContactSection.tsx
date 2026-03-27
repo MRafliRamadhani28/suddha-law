@@ -139,7 +139,7 @@ export default function ContactSection() {
             {/* Map */}
             <div className="flex-1 min-h-72 bg-suddha-gray rounded-2xl overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3961.1224863055972!2d107.58316417499611!3d-6.875925093122872!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwNTInMzMuMyJTIDEwN8KwMzUnMDguNyJF!5e0!3m2!1sen!2sid!4v1774599784653!5m2!1sen!2sid"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.122971444262!2d107.5855821!3d-6.8758669!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e69a9b7ee455%3A0x5f7ac6466ffb1e84!2sJl.%20Setrasari%20Kulon%20III%20No.10%2C%20Sukarasa%2C%20Kec.%20Sukasari%2C%20Kota%20Bandung%2C%20Jawa%20Barat%2040152!5e0!3m2!1sid!2sid!4v1774605363247!5m2!1sid!2sid"
                 width="100%"
                 height="100%"
                 style={{ border: 0, minHeight: "300px" }}
