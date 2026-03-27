@@ -6,6 +6,8 @@ import {
   Activity, Calendar, Gavel, Landmark, ClipboardList, Users,
 } from "lucide-react";
 import { services } from "@/constants/data";
+import { useLanguage } from "@/lib/language-context";
+import { t, tx } from "@/constants/translations";
 
 const iconMap: Record<string, React.ElementType> = {
   Search, MessageCircle, BookOpen, FileText, Stamp, ScrollText,
@@ -13,6 +15,7 @@ const iconMap: Record<string, React.ElementType> = {
 };
 
 export default function ServicesSection() {
+  const { lang } = useLanguage();
   return (
     <section id="services" className="py-20 bg-gradient-to-br from-suddha-blue via-suddha-teal to-suddha-blue">
       <div className="section-padding">
@@ -25,15 +28,14 @@ export default function ServicesSection() {
           transition={{ duration: 0.5 }}
         >
           <p className="text-suddha-gold font-semibold mb-4">
-            04 — Our Services
+            {tx(t.services.sectionLabel, lang)}
           </p>
           <h2 className="font-display font-bold text-white text-3xl md:text-4xl leading-tight mb-4">
-            Layanan
-            <span className="italic text-suddha-gold"> Operasional</span>
+            {lang === "en" ? "Operational" : "Layanan"}
+            <span className="italic text-suddha-gold"> {lang === "en" ? "Services" : "Operasional"}</span>
           </h2>
           <p className="text-white/90 leading-relaxed">
-            Rangkaian layanan spesifik yang kami berikan untuk memastikan setiap
-            aspek kebutuhan hukum klien tertangani dengan profesional.
+            {tx(t.services.subHeading, lang)}
           </p>
         </motion.div>
 
@@ -63,12 +65,12 @@ export default function ServicesSection() {
 
                 {/* Title */}
                 <h4 className="font-display font-semibold text-white text-sm mb-2">
-                  {service.title}
+                  {lang === "en" ? service.titleEn : service.title}
                 </h4>
 
                 {/* Description */}
                 <p className="text-white/90 text-xs leading-relaxed">
-                  {service.description}
+                  {lang === "en" ? service.descriptionEn : service.description}
                 </p>
               </motion.div>
             );
@@ -83,8 +85,9 @@ export default function ServicesSection() {
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
         >
-          Semua layanan disesuaikan dengan kebutuhan spesifik klien. Hubungi kami
-          untuk mendapatkan penawaran yang tepat sasaran.
+          {lang === "en"
+            ? "All services are tailored to each client\u2019s specific needs. Contact us to receive a targeted proposal."
+            : "Semua layanan disesuaikan dengan kebutuhan spesifik klien. Hubungi kami untuk mendapatkan penawaran yang tepat sasaran."}
         </motion.p>
       </div>
     </section>

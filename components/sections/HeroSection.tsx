@@ -4,9 +4,12 @@ import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { ArrowRight, Phone } from "lucide-react";
 import { companyInfo, stats } from "@/constants/data";
+import { useLanguage } from "@/lib/language-context";
+import { t, tx } from "@/constants/translations";
 
 export default function HeroSection() {
   const headingRef = useRef<HTMLHeadingElement>(null);
+  const { lang } = useLanguage();
 
   useEffect(() => {
     const el = headingRef.current;
@@ -36,7 +39,7 @@ export default function HeroSection() {
           {/* Label */}
           <div className="flex items-center gap-3 mb-6">
             <span className="text-suddha-gold font-semibold text-sm">
-              Suddha — Your Partner
+              {tx(t.hero.partner, lang)}
             </span>
           </div>
 
@@ -53,7 +56,7 @@ export default function HeroSection() {
 
           {/* Sub-heading */}
           <p className="text-white/90 text-lg md:text-xl max-w-xl leading-relaxed mb-10">
-            {companyInfo.subTagline}
+            {lang === "en" ? companyInfo.subTaglineEn : companyInfo.subTagline}
           </p>
 
           {/* CTAs */}
@@ -65,7 +68,7 @@ export default function HeroSection() {
               className="btn-primary group"
             >
               <Phone size={18} />
-              Konsultasi Sekarang
+              {tx(t.hero.ctaPrimary, lang)}
               <ArrowRight
                 size={18}
                 className="group-hover:translate-x-1 transition-transform"
@@ -75,7 +78,7 @@ export default function HeroSection() {
               href="/#practices"
               className="inline-flex items-center gap-2 text-white font-medium px-4 py-2 text-sm rounded-lg transition-all duration-200 hover:bg-white/20 hover:text-suddha-gold focus:outline-none focus:ring-2 focus:ring-white/30"
             >
-              Lihat Layanan Kami
+              {tx(t.hero.ctaSecondary, lang)}
             </Link>
           </div>
 
@@ -87,7 +90,7 @@ export default function HeroSection() {
                   {stat.value}{stat.suffix}
                 </div>
                 <div className="text-white/80 text-sm mt-1">
-                  {stat.label}
+                  {lang === "en" ? stat.labelEn : stat.label}
                 </div>
               </div>
             ))}

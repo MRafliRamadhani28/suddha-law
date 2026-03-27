@@ -1,9 +1,22 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { MapPin, Phone, Mail, Instagram, Linkedin } from "lucide-react";
 import { companyInfo, practices } from "@/constants/data";
+import { useLanguage } from "@/lib/language-context";
+import { t, tx } from "@/constants/translations";
 
 export default function Footer() {
+  const { lang } = useLanguage();
+
+  const navLinks = [
+    { label: tx(t.nav.home,       lang), href: "/#hero" },
+    { label: tx(t.nav.about,      lang), href: "/#about" },
+    { label: tx(t.nav.commitment, lang), href: "/#commitment" },
+    { label: tx(t.nav.services,   lang), href: "/#services" },
+    { label: tx(t.nav.contact,    lang), href: "/#contact" },
+  ];
   return (
     <footer className="bg-suddha-blue text-white">
       {/* Top Section */}
@@ -21,8 +34,7 @@ export default function Footer() {
             </div>
           </div>
           <p className="text-white/80 text-sm leading-relaxed mb-5">
-            Partner hukum terpercaya yang berdedikasi memberikan edukasi jernih
-            dan solusi tepat sasaran untuk bisnis dan individu Anda.
+            {tx(t.footer.tagline, lang)}
           </p>
           {/* Social Media */}
           <div className="flex items-center gap-3">
@@ -59,7 +71,7 @@ export default function Footer() {
         {/* Bidang Jasa */}
         <div>
           <h4 className="font-semibold text-suddha-gold mb-4 text-sm uppercase tracking-wide">
-            Bidang Jasa
+            {tx(t.footer.practicesTitle, lang)}
           </h4>
           <ul className="space-y-2">
             {practices.map((p) => (
@@ -68,7 +80,7 @@ export default function Footer() {
                   href={`/practices/${p.slug}`}
                   className="text-white/80 text-sm hover:text-suddha-gold transition-colors duration-200 block py-1"
                 >
-                  {p.title}
+                  {lang === "en" ? p.titleEn : p.title}
                 </Link>
               </li>
             ))}
@@ -78,16 +90,10 @@ export default function Footer() {
         {/* Quick Links */}
         <div>
           <h4 className="font-semibold text-suddha-gold mb-4 text-sm uppercase tracking-wide">
-            Navigasi
+            {tx(t.footer.navTitle, lang)}
           </h4>
           <ul className="space-y-2">
-            {[
-              { label: "Beranda",       href: "/#hero" },
-              { label: "Tentang Kami", href: "/#about" },
-              { label: "Komitmen",     href: "/#commitment" },
-              { label: "Layanan",      href: "/#services" },
-              { label: "Kontak",       href: "/#contact" },
-            ].map((link) => (
+            {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
@@ -103,7 +109,7 @@ export default function Footer() {
         {/* Contact */}
         <div>
           <h4 className="font-semibold text-suddha-gold mb-4 text-sm uppercase tracking-wide">
-            Kontak
+            {tx(t.footer.contactTitle, lang)}
           </h4>
           <ul className="space-y-3">
             <li className="flex items-start gap-2.5">
@@ -137,10 +143,10 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="section-padding border-t border-white/10 py-4 flex flex-col md:flex-row items-center justify-between gap-3">
         <p className="text-white/60 text-xs">
-          © {new Date().getFullYear()} {companyInfo.name}. Semua hak dilindungi.
+          © {new Date().getFullYear()} {companyInfo.name}. {tx(t.footer.rights, lang)}
         </p>
         <p className="text-white/60 text-xs">
-          Terdaftar di Kemenkumham RI — {companyInfo.legality.ahu}
+          {tx(t.footer.registered, lang)} — {companyInfo.legality.ahu}
         </p>
       </div>
     </footer>

@@ -2,8 +2,9 @@
 
 import { motion } from "framer-motion";
 import { Shield, Building2, BarChart3, ArrowRight } from "lucide-react";
-import { commitments } from "@/constants/data";
-import { companyInfo } from "@/constants/data";
+import { commitments, companyInfo } from "@/constants/data";
+import { useLanguage } from "@/lib/language-context";
+import { t, tx } from "@/constants/translations";
 
 const iconMap: Record<string, React.ElementType> = {
   Shield,
@@ -12,19 +13,19 @@ const iconMap: Record<string, React.ElementType> = {
 };
 
 export default function CommitmentSection() {
+  const { lang } = useLanguage();
   return (
     <section id="commitment" className="py-20 bg-suddha-gray/50">
       <div className="section-padding">
         {/* Header */}
         <div className="max-w-xl mb-12">
-          <p className="section-label">02 — Komitmen Kami</p>
+          <p className="section-label">{tx(t.commitment.sectionLabel, lang)}</p>
           <h2 className="font-display font-bold text-suddha-blue text-3xl md:text-4xl leading-tight mb-4">
-            Mengapa Memilih
+            {tx(t.commitment.heading, lang)}
             <span className="italic text-suddha-gold"> SUDDHA?</span>
           </h2>
           <p className="text-gray-700 leading-relaxed">
-            Kami berkomitmen untuk memberikan jasa hukum yang dapat diandalkan,
-            fokus terhadap industri, dengan biaya yang efisien bagi klien.
+            {tx(t.commitment.subHeading, lang)}
           </p>
         </div>
 
@@ -54,10 +55,10 @@ export default function CommitmentSection() {
 
                 {/* Content */}
                 <h3 className="font-display font-bold text-lg text-suddha-blue mb-3">
-                  {item.title}
+                  {lang === "en" ? item.titleEn : item.title}
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
-                  {item.description}
+                  {lang === "en" ? item.descriptionEn : item.description}
                 </p>
               </motion.div>
             );
@@ -72,7 +73,7 @@ export default function CommitmentSection() {
             rel="noopener noreferrer"
             className="btn-primary group"
           >
-            Jadwalkan Konsultasi
+            {tx(t.commitment.cta, lang)}
             <ArrowRight
               size={16}
               className="group-hover:translate-x-1 transition-transform"

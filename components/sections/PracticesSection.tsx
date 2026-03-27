@@ -6,12 +6,15 @@ import {
   Briefcase, Scale, Home, Lightbulb, CreditCard, ArrowRight,
 } from "lucide-react";
 import { practices } from "@/constants/data";
+import { useLanguage } from "@/lib/language-context";
+import { t, tx } from "@/constants/translations";
 
 const iconMap: Record<string, React.ElementType> = {
   Briefcase, Scale, Home, Lightbulb, CreditCard,
 };
 
 export default function PracticesSection() {
+  const { lang } = useLanguage();
   return (
     <section id="practices" className="py-20 bg-white">
       <div className="section-padding">
@@ -23,14 +26,13 @@ export default function PracticesSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <p className="section-label">03 — Bidang Jasa Hukum</p>
+          <p className="section-label">{tx(t.practices.sectionLabel, lang)}</p>
           <h2 className="font-display font-bold text-suddha-blue text-3xl md:text-4xl leading-tight mb-4">
             Area of
             <span className="italic text-suddha-gold"> Practices</span>
           </h2>
           <p className="text-gray-700 leading-relaxed">
-            SUDDHA memberikan layanan hukum komprehensif yang mencakup berbagai
-            bidang untuk memenuhi kebutuhan klien dari semua sektor industri.
+            {tx(t.practices.subHeading, lang)}
           </p>
         </motion.div>
 
@@ -63,20 +65,20 @@ export default function PracticesSection() {
 
                   {/* Title */}
                   <h3 className="font-display font-bold text-lg text-suddha-blue mb-1 group-hover:text-suddha-teal transition-colors">
-                    {practice.title}
+                    {lang === "en" ? practice.titleEn : practice.title}
                   </h3>
                   <p className="text-xs text-gray-500 uppercase tracking-wide mb-4">
-                    {practice.titleEn}
+                    {lang === "en" ? practice.title : practice.titleEn}
                   </p>
 
                   {/* Short desc */}
                   <p className="text-gray-700 text-sm leading-relaxed flex-1">
-                    {practice.shortDescription}
+                    {lang === "en" ? practice.shortDescriptionEn : practice.shortDescription}
                   </p>
 
                   {/* Arrow */}
                   <div className="flex items-center gap-2 mt-6 text-suddha-gold font-semibold text-sm">
-                    <span>Selengkapnya</span>
+                    <span>{tx(t.practices.cta, lang)}</span>
                     <ArrowRight
                       size={14}
                       className="group-hover:translate-x-1 transition-transform"
