@@ -1,15 +1,13 @@
 name: Build & Deploy to cPanel
-
 on:
   push:
     branches:
-      - main  # ganti ke 'master' jika branch utama Anda adalah master
-  workflow_dispatch: # memungkinkan trigger manual dari GitHub UI
+      - main
+  workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -42,9 +40,14 @@ jobs:
         run: |
           echo "Pulling latest from remote..."
           curl -s \
+            -X POST \
             -H "Authorization: cpanel $CPANEL_USERNAME:$CPANEL_API_TOKEN" \
+            -H "Content-Type: application/json" \
             "https://$CPANEL_HOST:2083/execute/VersionControl/update?name=suddha-law"
+
           echo "Deploying HEAD commit..."
           curl -s \
+            -X POST \
             -H "Authorization: cpanel $CPANEL_USERNAME:$CPANEL_API_TOKEN" \
+            -H "Content-Type: application/json" \
             "https://$CPANEL_HOST:2083/execute/VersionControl/deploy?name=suddha-law"
