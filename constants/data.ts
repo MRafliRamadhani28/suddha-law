@@ -414,9 +414,9 @@ export const stats = [
 // Set any value to false to completely hide that section from the page.
 // ---------------------------------------------------------------------------
 export const features = {
-  testimonials: true,
-  team:         true,
-  faq:          true,
+  testimonials: false,
+  team:         false,
+  faq:          false,
 };
 
 // ---------------------------------------------------------------------------

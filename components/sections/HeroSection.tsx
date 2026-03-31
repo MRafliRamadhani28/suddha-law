@@ -85,6 +85,19 @@ export default function HeroSection() {
             </Link>
           </div>
 
+          {/* Mobile hero image — visible only on small screens */}
+          <div className="relative w-full h-72 lg:hidden mt-10 rounded-2xl overflow-hidden">
+            <Image
+              src="/images/post-05-07-Cover.webp"
+              alt="Suddha Partnership — attorney at work"
+              fill
+              className="object-cover object-top"
+              priority
+            />
+            {/* Bottom fade */}
+            <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-suddha-blue/70 to-transparent pointer-events-none" />
+          </div>
+
           {/* Stats strip */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-10 border-t border-white/10">
             {stats.map((stat) => (
