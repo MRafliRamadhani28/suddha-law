@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Phone } from "lucide-react";
 import { companyInfo, stats } from "@/constants/data";
@@ -27,15 +28,17 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-[90vh] flex flex-col justify-center bg-gradient-to-br from-suddha-blue via-suddha-teal to-suddha-blue overflow-hidden"
+      className="relative min-h-[90vh] bg-gradient-to-br from-suddha-blue via-suddha-teal to-suddha-blue overflow-hidden"
     >
       {/* Soft background glow */}
-      <div className="absolute top-1/4 -right-32 w-96 h-96 bg-suddha-gold/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 -left-32 w-80 h-80 bg-suddha-gold/5 rounded-full blur-3xl" />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-suddha-gold/8 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 -left-32 w-80 h-80 bg-suddha-gold/5 rounded-full blur-3xl pointer-events-none" />
 
-      {/* Main content */}
-      <div className="section-padding relative z-10 py-20">
-        <div className="max-w-4xl">
+      {/* Split grid: content left, image right (desktop only) */}
+      <div className="relative z-10 grid lg:grid-cols-[3fr_2fr] min-h-[90vh]">
+
+        {/* Left column — content */}
+        <div className="section-padding py-20 flex flex-col justify-center">
           {/* Label */}
           <div className="flex items-center gap-3 mb-6">
             <span className="text-suddha-gold font-semibold text-sm">
@@ -83,7 +86,7 @@ export default function HeroSection() {
           </div>
 
           {/* Stats strip */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-10 border-t border-white/10">
             {stats.map((stat) => (
               <div key={stat.label}>
                 <div className="font-display font-bold text-3xl md:text-4xl text-suddha-gold">
@@ -96,6 +99,22 @@ export default function HeroSection() {
             ))}
           </div>
         </div>
+
+        {/* Right column — photo panel (hidden on mobile) */}
+        <div className="hidden lg:block relative">
+          <Image
+            src="/images/11-08.webp"
+            alt="Suddha Partnership — attorney at work"
+            fill
+            className="object-cover object-top"
+            priority
+          />
+          {/* Left-edge gradient: blends photo into hero background */}
+          <div className="absolute inset-0 bg-gradient-to-r from-suddha-blue via-suddha-blue/40 to-transparent pointer-events-none" />
+          {/* Bottom gradient fade */}
+          <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-suddha-blue/70 to-transparent pointer-events-none" />
+        </div>
+
       </div>
     </section>
   );

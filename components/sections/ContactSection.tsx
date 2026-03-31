@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, MessageCircle, Clock, ArrowRight } from "lucide-react";
 import { companyInfo } from "@/constants/data";
@@ -34,12 +35,24 @@ export default function ContactSection() {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
           {/* Contact Info */}
           <motion.div
-            className="lg:col-span-2 bg-gradient-to-br from-suddha-blue to-suddha-teal text-white p-8 rounded-2xl shadow-lg shadow-suddha-blue/10"
+            className="lg:col-span-2 relative overflow-hidden text-white p-8 rounded-2xl shadow-lg shadow-suddha-blue/10"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
+            {/* Background photo */}
+            <Image
+              src="/images/DSC09191.webp"
+              alt=""
+              fill
+              className="object-cover object-center"
+            />
+            {/* Strong gradient overlay — ensures full text readability */}
+            <div className="absolute inset-0 bg-gradient-to-br from-suddha-blue/95 via-suddha-blue/88 to-suddha-teal/92 pointer-events-none" />
+
+            {/* Content — sits above overlay */}
+            <div className="relative z-10">
             <p className="text-suddha-gold font-semibold mb-6">
               {lang === "en" ? "Contact Information" : "Informasi Kontak"}
             </p>
@@ -126,6 +139,7 @@ export default function ContactSection() {
                 />
               </a>
             </div>
+            </div>{/* end relative z-10 */}
           </motion.div>
 
           {/* Map + info */}

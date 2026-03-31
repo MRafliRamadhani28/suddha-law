@@ -142,10 +142,10 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="section-padding border-t border-white/10 py-4 flex flex-col md:flex-row items-center justify-between gap-3">
-        <p className="text-white/60 text-xs">
+        <p className="text-white/75 text-xs">
           © {new Date().getFullYear()} {companyInfo.name}. {tx(t.footer.rights, lang)}
         </p>
-        <p className="text-white/60 text-xs">
+        <p className="text-white/75 text-xs">
           {tx(t.footer.registered, lang)} — {companyInfo.legality.ahu}
         </p>
       </div>

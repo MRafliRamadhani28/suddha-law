@@ -12,8 +12,11 @@ export const t = {
     practices:  { id: "Bidang Jasa",  en: "Practice Areas" },
     services:   { id: "Layanan",      en: "Services" },
     contact:    { id: "Kontak",       en: "Contact" },
-    cta:        { id: "Konsultasi",   en: "Consultation" },
-    ctaMobile:  { id: "Konsultasi Sekarang", en: "Consult Now" },
+    cta:           { id: "Konsultasi",        en: "Consultation" },
+    ctaMobile:     { id: "Konsultasi Sekarang", en: "Consult Now" },
+    testimonials:  { id: "Testimoni",          en: "Testimonials" },
+    team:          { id: "Tim Kami",           en: "Our Team" },
+    faq:           { id: "FAQ",                en: "FAQ" },
   },
 
   hero: {
@@ -64,8 +67,43 @@ export const t = {
     },
   },
 
+  testimonials: {
+    sectionLabel: { id: "05 — Testimoni",    en: "05 — Testimonials" },
+    heading:      { id: "Apa Kata Klien",    en: "What Clients Say" },
+    headingAccent:{ id: "Kami",             en: "About Us" },
+    subHeading:   {
+      id: "Kepercayaan klien adalah fondasi utama kami. Berikut pengalaman nyata mereka bersama SUDDHA.",
+      en: "Client trust is our primary foundation. Here are their real experiences with SUDDHA.",
+    },
+    badge:        { id: "Klien Terverifikasi", en: "Verified Client" },
+  },
+
+  team: {
+    sectionLabel:        { id: "06 — Tim Kami", en: "06 — Our Team" },
+    heading:             { id: "Orang-orang di Balik", en: "The People Behind" },
+    headingAccent:       { id: "SUDDHA",              en: "SUDDHA" },
+    subHeading:          {
+      id: "Tim profesional kami terdiri dari pengacara dan konsultan hukum berpengalaman dengan keahlian di berbagai bidang hukum.",
+      en: "Our professional team comprises experienced lawyers and legal consultants with expertise across diverse areas of law.",
+    },
+    specializationLabel: { id: "Spesialisasi", en: "Specialisation" },
+  },
+
+  faq: {
+    sectionLabel:  { id: "07 — FAQ", en: "07 — FAQ" },
+    heading:       { id: "Pertanyaan yang",      en: "Frequently Asked" },
+    headingAccent: { id: "Sering Ditanyakan",    en: "Questions" },
+    subHeading:    {
+      id: "Temukan jawaban atas pertanyaan umum tentang layanan dan proses hukum kami.",
+      en: "Find answers to common questions about our services and legal processes.",
+    },
+    all:           { id: "Semua",              en: "All" },
+    cta:           { id: "Masih ada pertanyaan lain?", en: "Still have more questions?" },
+    ctaLabel:      { id: "Chat via WhatsApp",  en: "Chat via WhatsApp" },
+  },
+
   contact: {
-    sectionLabel:  { id: "05 — Kontak", en: "05 — Contact" },
+    sectionLabel:  { id: "08 — Kontak", en: "08 — Contact" },
     heading:       { id: "Hubungi Kami",en: "Get In Touch" },
     subHeading:    {
       id: "Kami siap membantu Anda. Hubungi kami melalui WhatsApp, email, atau kunjungi kantor kami di Bandung.",

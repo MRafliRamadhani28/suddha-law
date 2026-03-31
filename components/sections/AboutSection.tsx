@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { CheckCircle2 } from "lucide-react";
 import { companyInfo, aboutStory } from "@/constants/data";
 import { useLanguage } from "@/lib/language-context";
@@ -47,8 +48,22 @@ export default function AboutSection() {
             </div>
           </div>
 
-          {/* Legality card */}
-          <div>
+          {/* Right column — photo stacked above legality card */}
+          <div className="flex flex-col gap-6">
+
+            {/* Office / team photo */}
+            <div className="relative h-60 rounded-2xl overflow-hidden shadow-lg">
+              <Image
+                src="/images/DSC09214.webp"
+                alt="Tim Suddha Partnership berdiskusi di kantor"
+                fill
+                className="object-cover object-center"
+              />
+              {/* Subtle scrim for visual weight */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
+            </div>
+
+            {/* Legality card */}
             <div className="bg-gradient-to-br from-suddha-blue to-suddha-teal text-white p-8 rounded-2xl shadow-lg shadow-suddha-blue/10">
               <p className="text-suddha-gold font-semibold mb-4">
                 {tx(t.about.legalityTitle, lang)}

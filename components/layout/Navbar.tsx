@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { companyInfo } from "@/constants/data";
+import { companyInfo, features } from "@/constants/data";
 import { useLanguage } from "@/lib/language-context";
 import { t, tx } from "@/constants/translations";
 
@@ -46,12 +46,15 @@ export default function Navbar() {
   const { lang, setLang } = useLanguage();
 
   const navLinks = [
-    { label: tx(t.nav.home,       lang), href: "/#hero" },
-    { label: tx(t.nav.about,      lang), href: "/#about" },
-    { label: tx(t.nav.commitment, lang), href: "/#commitment" },
-    { label: tx(t.nav.practices,  lang), href: "/#practices" },
-    { label: tx(t.nav.services,   lang), href: "/#services" },
-    { label: tx(t.nav.contact,    lang), href: "/#contact" },
+    { label: tx(t.nav.home,         lang), href: "/#hero" },
+    { label: tx(t.nav.about,        lang), href: "/#about" },
+    { label: tx(t.nav.commitment,   lang), href: "/#commitment" },
+    { label: tx(t.nav.practices,    lang), href: "/#practices" },
+    { label: tx(t.nav.services,     lang), href: "/#services" },
+    ...(features.testimonials ? [{ label: tx(t.nav.testimonials, lang), href: "/#testimonials" }] : []),
+    ...(features.team         ? [{ label: tx(t.nav.team,         lang), href: "/#team" }]         : []),
+    ...(features.faq          ? [{ label: tx(t.nav.faq,          lang), href: "/#faq" }]          : []),
+    { label: tx(t.nav.contact,      lang), href: "/#contact" },
   ];
 
   useEffect(() => {
@@ -67,7 +70,7 @@ export default function Navbar() {
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           scrolled
             ? "bg-white/90 backdrop-blur-md shadow-sm"
-            : "bg-transparent"
+            : "bg-gradient-to-b from-suddha-blue/45 via-suddha-blue/20 to-transparent"
         )}
       >
         <nav className="section-padding flex items-center justify-between h-16 md:h-18">
@@ -85,14 +88,14 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-6">
+          <div className="hidden xl:flex items-center gap-4">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className={cn(
                   "text-sm font-medium transition-colors",
-                  scrolled ? "text-gray-700 hover:text-suddha-blue" : "text-white hover:text-suddha-gold"
+                  scrolled ? "text-gray-700 hover:text-suddha-blue" : "text-white hover:text-suddha-gold drop-shadow-[0_1px_1px_rgba(0,0,0,0.55)]"
                 )}
               >
                 {link.label}
@@ -101,7 +104,7 @@ export default function Navbar() {
           </div>
 
           {/* Desktop right — language switcher + CTA */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden xl:flex items-center gap-3">
             <LanguageSwitcher scrolled={scrolled} />
             <a
               href={companyInfo.contact.whatsapp}
@@ -118,8 +121,8 @@ export default function Navbar() {
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className={cn(
-              "lg:hidden p-2 rounded-lg transition-all duration-200",
-              scrolled ? "text-suddha-blue hover:bg-suddha-blue/10" : "text-white hover:bg-white/10"
+              "xl:hidden p-2 rounded-lg transition-all duration-200",
+              scrolled ? "text-suddha-blue hover:bg-suddha-blue/10" : "text-white hover:bg-white/15"
             )}
             aria-label="Toggle menu"
           >
@@ -131,7 +134,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <div
         className={cn(
-          "fixed inset-0 z-40 lg:hidden transition-all duration-300",
+          "fixed inset-0 z-40 xl:hidden transition-all duration-300",
           mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         )}
       >

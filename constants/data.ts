@@ -408,3 +408,318 @@ export const stats = [
   { value: "12",   label: "Layanan Spesifik",labelEn: "Specific Services",  suffix: "" },
   { value: "100",  label: "Kepuasan Klien",  labelEn: "Client Satisfaction",suffix: "%" },
 ];
+
+// ---------------------------------------------------------------------------
+// Feature Flags
+// Set any value to false to completely hide that section from the page.
+// ---------------------------------------------------------------------------
+export const features = {
+  testimonials: true,
+  team:         true,
+  faq:          true,
+};
+
+// ---------------------------------------------------------------------------
+// Testimonials
+// ---------------------------------------------------------------------------
+export type Testimonial = {
+  id: string;
+  name: string;
+  role: string;
+  roleEn: string;
+  company: string;
+  rating: number;
+  quote: string;
+  quoteEn: string;
+  avatar: string;
+};
+
+export const testimonials: Testimonial[] = [
+  {
+    id: "t1",
+    name: "Rizki Aditya Pratama",
+    role: "CEO & Founder",
+    roleEn: "CEO & Founder",
+    company: "PT Teknologi Solusi Digital",
+    rating: 5,
+    quote: "SUDDHA sangat membantu dalam proses pendirian perusahaan kami. Penjelasan yang diberikan sangat jelas, risiko hukum dijelaskan secara transparan sehingga kami dapat mengambil keputusan dengan percaya diri.",
+    quoteEn: "SUDDHA was instrumental in our company establishment. Their explanations were clear and legal risks communicated transparently, allowing us to make decisions with full confidence.",
+    avatar: "RA",
+  },
+  {
+    id: "t2",
+    name: "Sari Dewi Kusumaningtyas",
+    role: "Direktur Utama",
+    roleEn: "Managing Director",
+    company: "PT Graha Properti Nusantara",
+    rating: 5,
+    quote: "Penanganan sengketa properti kami diselesaikan dengan sangat profesional. SUDDHA tahu persis cara bernegosiasi sehingga masalah selesai tanpa proses pengadilan yang berlarut-larut.",
+    quoteEn: "Our property dispute was resolved with utmost professionalism. SUDDHA knew exactly how to negotiate, settling the matter without protracted court proceedings.",
+    avatar: "SD",
+  },
+  {
+    id: "t3",
+    name: "Budi Hartono Wibisono",
+    role: "Direktur Keuangan",
+    roleEn: "Finance Director",
+    company: "PT Maju Jaya Manufaktur",
+    rating: 5,
+    quote: "Legal audit yang dilakukan SUDDHA membuka mata kami terhadap berbagai celah hukum yang tidak kami sadari sebelumnya. Laporan komprehensif dengan rekomendasi yang actionable.",
+    quoteEn: "SUDDHA's legal audit opened our eyes to legal gaps we were previously unaware of. A comprehensive report with truly actionable recommendations.",
+    avatar: "BH",
+  },
+  {
+    id: "t4",
+    name: "Amanda Putri Setiawan",
+    role: "Brand Manager",
+    roleEn: "Brand Manager",
+    company: "Kreasi Nusantara Group",
+    rating: 5,
+    quote: "Pendaftaran merek dagang berjalan sangat lancar bersama SUDDHA. Tim mereka sangat responsif dan selalu memberikan update terkini. Merek kami kini terlindungi dengan baik.",
+    quoteEn: "Trademark registration went incredibly smoothly with SUDDHA. Their team was highly responsive and kept us updated throughout. Our brand is now well protected.",
+    avatar: "AP",
+  },
+  {
+    id: "t5",
+    name: "Hendra Gunawan Santoso",
+    role: "Pengusaha",
+    roleEn: "Entrepreneur",
+    company: "CV Bintang Usaha Mandiri",
+    rating: 5,
+    quote: "Saya menggunakan jasa penagihan utang SUDDHA. Dalam 3 minggu, masalah yang sudah berbulan-bulan tertunda akhirnya terselesaikan. Prosesnya cepat, profesional, dan transparan.",
+    quoteEn: "I engaged SUDDHA for debt collection. In just 3 weeks, an issue pending for months was resolved. Fast, professional, and completely transparent throughout.",
+    avatar: "HG",
+  },
+  {
+    id: "t6",
+    name: "Novita Rahmawati",
+    role: "Co-Founder & COO",
+    roleEn: "Co-Founder & COO",
+    company: "Startup Edu Innovasi",
+    rating: 5,
+    quote: "Sebagai startup, kami butuh konsultan yang memahami dinamika bisnis modern. SUDDHA melampaui harapan kami. Biaya transparan, komunikasi cepat, dan solusi yang tepat sasaran.",
+    quoteEn: "As a startup, we needed a consultant who understood modern business dynamics. SUDDHA exceeded our expectations — transparent fees, fast communication, and targeted solutions.",
+    avatar: "NR",
+  },
+  {
+    id: "t7",
+    name: "Fajar Mulyadi Kusuma",
+    role: "Direktur Operasional",
+    roleEn: "Operations Director",
+    company: "PT Ekspor Nusantara Prima",
+    rating: 5,
+    quote: "Perizinan ekspor kami yang tersangkut berhasil diselesaikan SUDDHA dengan sangat cepat. Koneksi mereka dengan instansi pemerintah benar-benar terasa manfaatnya bagi bisnis kami.",
+    quoteEn: "SUDDHA resolved our stalled export licences with remarkable speed. Their connections with government agencies made a tangible, significant difference for our business.",
+    avatar: "FM",
+  },
+  {
+    id: "t8",
+    name: "Dewi Kartika Sanjaya",
+    role: "Pemilik",
+    roleEn: "Owner",
+    company: "Sanjaya Hospitality & Resort",
+    rating: 5,
+    quote: "Sudah 2 tahun menggunakan layanan legal retainer SUDDHA. Kehadiran mereka dalam weekly meeting sangat membantu kelancaran operasional bisnis kami setiap harinya.",
+    quoteEn: "We have used SUDDHA's legal retainer service for 2 years. Their presence in our weekly meetings greatly contributes to the smooth day-to-day operation of our business.",
+    avatar: "DK",
+  },
+];
+
+// ---------------------------------------------------------------------------
+// Team Members
+// ---------------------------------------------------------------------------
+export type TeamMember = {
+  id: string;
+  name: string;
+  title: string;
+  titleEn: string;
+  education: string;
+  educationEn: string;
+  specialization: string[];
+  specializationEn: string[];
+  bio: string;
+  bioEn: string;
+  linkedin?: string;
+};
+
+export const teamMembers: TeamMember[] = [
+  {
+    id: "tm1",
+    name: "Dr. Aditya Prasetyo, S.H., M.H.",
+    title: "Managing Partner",
+    titleEn: "Managing Partner",
+    education: "Doktor Ilmu Hukum, Universitas Padjadjaran",
+    educationEn: "Doctor of Law, Padjadjaran University",
+    specialization: ["Hukum Korporasi", "Hukum Komersial", "Perizinan Usaha"],
+    specializationEn: ["Corporate Law", "Commercial Law", "Business Licensing"],
+    bio: "Memimpin SUDDHA sejak 2020 dengan lebih dari 15 tahun pengalaman di bidang hukum korporasi dan komersial. Telah menangani lebih dari 200 transaksi bisnis berskala besar di berbagai sektor industri Indonesia.",
+    bioEn: "Leading SUDDHA since 2020 with over 15 years of experience in corporate and commercial law. Has handled more than 200 large-scale business transactions across various Indonesian industry sectors.",
+    linkedin: "https://linkedin.com/in/suddha-partnership-lawfirm-ba0994387",
+  },
+  {
+    id: "tm2",
+    name: "Ratna Sari Dewi, S.H., LL.M.",
+    title: "Senior Partner – Penyelesaian Sengketa",
+    titleEn: "Senior Partner – Dispute Resolution",
+    education: "Master of Laws (LL.M.), Universitas Indonesia",
+    educationEn: "Master of Laws (LL.M.), University of Indonesia",
+    specialization: ["Litigasi Perdata", "Arbitrase Komersial", "Mediasi"],
+    specializationEn: ["Civil Litigation", "Commercial Arbitration", "Mediation"],
+    bio: "Spesialis penyelesaian sengketa dengan pengalaman lebih dari 10 tahun di pengadilan negeri dan niaga. Berpengalaman dalam arbitrase internasional dan mediasi bisnis yang kompleks.",
+    bioEn: "A dispute resolution specialist with over 10 years of experience in district and commercial courts. Experienced in international arbitration and complex business mediation.",
+  },
+  {
+    id: "tm3",
+    name: "Budi Susanto, S.H., M.Kn.",
+    title: "Partner – Hukum Properti",
+    titleEn: "Partner – Property Law",
+    education: "Magister Kenotariatan, Universitas Gadjah Mada",
+    educationEn: "Master of Notarial Law, Gadjah Mada University",
+    specialization: ["Hukum Properti", "Hukum Agraria", "Transaksi Lahan"],
+    specializationEn: ["Property Law", "Agrarian Law", "Land Transactions"],
+    bio: "Konsultan hukum properti dengan keahlian mendalam di bidang agraria dan pertanahan. Memiliki jaringan kuat dengan BPN yang memudahkan penyelesaian permasalahan properti klien.",
+    bioEn: "A property law consultant with deep expertise in agrarian and land affairs. Maintains a strong network with the National Land Agency, facilitating swift resolution of client property matters.",
+  },
+  {
+    id: "tm4",
+    name: "Indri Wulandari, S.H., M.H.",
+    title: "Partner – Kekayaan Intelektual",
+    titleEn: "Partner – Intellectual Property",
+    education: "Magister Hukum, Universitas Padjadjaran",
+    educationEn: "Master of Law, Padjadjaran University",
+    specialization: ["Kekayaan Intelektual", "Merek Dagang", "Paten & Hak Cipta"],
+    specializationEn: ["Intellectual Property", "Trademark", "Patent & Copyright"],
+    bio: "Konsultan KI terdaftar berpengalaman dalam perlindungan merek, paten, dan hak cipta. Telah mendaftarkan lebih dari 150 merek dagang dan menangani berbagai sengketa KI.",
+    bioEn: "A registered IP consultant experienced in trademark, patent, and copyright protection. Has registered over 150 trademarks and handled numerous IP disputes.",
+  },
+  {
+    id: "tm5",
+    name: "Yoga Pratama, S.H.",
+    title: "Associate – Hukum Korporasi",
+    titleEn: "Associate – Corporate Law",
+    education: "Sarjana Hukum, Universitas Indonesia",
+    educationEn: "Bachelor of Law, University of Indonesia",
+    specialization: ["Pendirian Perusahaan", "Kontrak Komersial", "Kepatuhan Hukum"],
+    specializationEn: ["Company Establishment", "Commercial Contracts", "Legal Compliance"],
+    bio: "Praktisi hukum korporasi yang berdedikasi dalam membantu klien mendirikan dan mengelola badan usaha. Spesialis dalam penyusunan kontrak komersial dan due diligence.",
+    bioEn: "A dedicated corporate law practitioner assisting clients in establishing and managing business entities. Specialises in commercial contract drafting and due diligence.",
+  },
+  {
+    id: "tm6",
+    name: "Maya Anggraini, S.H.",
+    title: "Legal Consultant – Ketenagakerjaan",
+    titleEn: "Legal Consultant – Labour & Employment",
+    education: "Sarjana Hukum, Universitas Padjadjaran",
+    educationEn: "Bachelor of Law, Padjadjaran University",
+    specialization: ["Hukum Ketenagakerjaan", "Hubungan Industrial", "PHK & Pesangon"],
+    specializationEn: ["Labour Law", "Industrial Relations", "Termination & Severance"],
+    bio: "Konsultan hukum ketenagakerjaan dengan keahlian dalam hubungan industrial dan penyusunan peraturan perusahaan. Berpengalaman dalam penyelesaian perselisihan antara pengusaha dan karyawan.",
+    bioEn: "A labour law consultant with expertise in industrial relations and company regulation drafting. Experienced in resolving employer-employee disputes professionally.",
+  },
+];
+
+// ---------------------------------------------------------------------------
+// FAQs
+// ---------------------------------------------------------------------------
+export type Faq = {
+  id: string;
+  question: string;
+  questionEn: string;
+  answer: string;
+  answerEn: string;
+  category: string;
+  categoryEn: string;
+};
+
+export const faqs: Faq[] = [
+  {
+    id: "faq1",
+    category: "Konsultasi",
+    categoryEn: "Consultation",
+    question: "Bagaimana cara memulai konsultasi dengan SUDDHA?",
+    questionEn: "How do I start a consultation with SUDDHA?",
+    answer: "Hubungi kami melalui WhatsApp, telepon, atau email yang tersedia di halaman Kontak. Tim kami akan merespons dalam waktu kurang dari 2 jam di hari kerja untuk menjadwalkan sesi konsultasi pertama Anda.",
+    answerEn: "Contact us via WhatsApp, phone, or email available on the Contact page. Our team will respond within 2 hours on business days to schedule your first consultation session.",
+  },
+  {
+    id: "faq2",
+    category: "Konsultasi",
+    categoryEn: "Consultation",
+    question: "Apakah tersedia konsultasi secara online atau virtual?",
+    questionEn: "Is online or virtual consultation available?",
+    answer: "Ya. Kami menyediakan konsultasi online melalui video call, teleconference, atau pesan singkat. Klien juga dapat berkonsultasi secara langsung di kantor kami di Bandung maupun di kantor klien.",
+    answerEn: "Yes. We offer online consultation via video call, teleconference, or instant messaging. Clients are also welcome to consult in person at our Bandung office or at the client's premises.",
+  },
+  {
+    id: "faq3",
+    category: "Biaya",
+    categoryEn: "Fees",
+    question: "Bagaimana struktur biaya atau honorarium di SUDDHA?",
+    questionEn: "What is the fee structure at SUDDHA?",
+    answer: "Biaya layanan bervariasi tergantung jenis dan kompleksitas perkara. Kami berkomitmen pada transparansi biaya dan akan memberikan estimasi honorarium secara jelas di awal engagement. Tersedia juga paket legal retainer bulanan yang lebih efisien untuk kebutuhan berkelanjutan.",
+    answerEn: "Service fees vary depending on the type and complexity of the matter. We are committed to full fee transparency and will provide a clear estimate upfront. Monthly legal retainer packages are also available for ongoing legal needs.",
+  },
+  {
+    id: "faq4",
+    category: "Biaya",
+    categoryEn: "Fees",
+    question: "Apakah tersedia paket legal retainer?",
+    questionEn: "Is a legal retainer package available?",
+    answer: "Ya. Paket legal retainer bulanan kami mencakup konsultasi tak terbatas, review dokumen, weekly meeting di kantor klien, dan berbagai layanan operasional lainnya — dirancang untuk perusahaan atau startup yang membutuhkan dukungan hukum berkelanjutan dengan biaya terukur.",
+    answerEn: "Yes. Our monthly legal retainer package covers unlimited consultations, document reviews, weekly meetings at the client's office, and various operational services — designed for companies or startups needing continuous legal support at a predictable cost.",
+  },
+  {
+    id: "faq5",
+    category: "Proses Hukum",
+    categoryEn: "Legal Process",
+    question: "Berapa lama proses pendirian perusahaan (PT) di SUDDHA?",
+    questionEn: "How long does PT establishment take with SUDDHA?",
+    answer: "Proses pendirian PT umumnya membutuhkan 7–14 hari kerja tergantung kelengkapan dokumen dan kondisi sistem OSS. Tim kami memandu seluruh proses dari akta notaris, pendaftaran AHU, hingga penerbitan NIB secara end-to-end.",
+    answerEn: "PT establishment generally takes 7–14 business days depending on document completeness and OSS system conditions. Our team guides the entire process end-to-end, from the notarial deed and AHU registration to NIB issuance.",
+  },
+  {
+    id: "faq6",
+    category: "Proses Hukum",
+    categoryEn: "Legal Process",
+    question: "Apakah SUDDHA menangani kasus di luar kota Bandung?",
+    questionEn: "Does SUDDHA handle cases outside of Bandung?",
+    answer: "Ya. Meskipun berbasis di Bandung, kami menangani perkara di seluruh Indonesia. Untuk perkara yang memerlukan kehadiran fisik di luar Bandung, biaya perjalanan akan disepakati di awal dan ditampilkan secara transparan dalam perjanjian jasa hukum.",
+    answerEn: "Yes. Although based in Bandung, we handle matters throughout Indonesia. For cases requiring physical presence outside Bandung, travel costs are agreed upon upfront and transparently disclosed in the legal services agreement.",
+  },
+  {
+    id: "faq7",
+    category: "Proses Hukum",
+    categoryEn: "Legal Process",
+    question: "Dokumen apa saja yang perlu disiapkan untuk konsultasi pertama?",
+    questionEn: "What documents should I prepare for the first consultation?",
+    answer: "Untuk konsultasi pertama, siapkan gambaran umum permasalahan secara tertulis. Untuk perkara bisnis, dokumen seperti akta perusahaan atau kontrak yang bermasalah sangat berguna. Namun tidak wajib — konsultasi awal dapat dilakukan hanya melalui diskusi.",
+    answerEn: "For the initial consultation, prepare a written overview of your issue. For business matters, documents such as a company deed or disputed contract are helpful, but not mandatory — an initial consultation can be conducted through discussion alone.",
+  },
+  {
+    id: "faq8",
+    category: "Layanan",
+    categoryEn: "Services",
+    question: "Apakah SUDDHA menangani perkara pidana?",
+    questionEn: "Does SUDDHA handle criminal cases?",
+    answer: "Ya. SUDDHA memberikan representasi hukum dalam perkara pidana, termasuk pendampingan di tingkat penyidikan, penuntutan, hingga persidangan. Tim kami berpengalaman dalam perkara pidana umum maupun pidana khusus seperti pidana ekonomi.",
+    answerEn: "Yes. SUDDHA provides legal representation in criminal matters, including at the investigation, prosecution, and trial stages. Our team is experienced in both general and special criminal cases, including economic crime.",
+  },
+  {
+    id: "faq9",
+    category: "Layanan",
+    categoryEn: "Services",
+    question: "Layanan kekayaan intelektual apa saja yang tersedia?",
+    questionEn: "What intellectual property services are available?",
+    answer: "Kami menyediakan layanan lengkap di bidang KI: pendaftaran merek dagang, paten, hak cipta, desain industri, dan indikasi geografis. Kami juga menangani sengketa KI, perjanjian lisensi, dan transfer teknologi.",
+    answerEn: "We provide comprehensive IP services: trademark, patent, copyright, industrial design, and geographical indication registration. We also handle IP disputes, licensing agreements, and technology transfers.",
+  },
+  {
+    id: "faq10",
+    category: "Layanan",
+    categoryEn: "Services",
+    question: "Apakah SUDDHA dapat membantu proses perizinan usaha?",
+    questionEn: "Can SUDDHA assist with business licensing?",
+    answer: "Ya. Kami menangani perizinan usaha secara menyeluruh melalui sistem OSS, termasuk penerbitan NIB, izin usaha sektoral, dan perizinan lainnya sesuai bidang usaha klien. Kami juga memantau kepatuhan perizinan secara berkala.",
+    answerEn: "Yes. We handle business licensing comprehensively through the OSS system, including NIB issuance, sectoral business permits, and other required approvals. We also monitor licensing compliance on an ongoing basis.",
+  },
+];

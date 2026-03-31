@@ -40,7 +40,7 @@ export default function PracticeDetailClient({ practice, prevPractice, nextPract
           {/* Back button */}
           <Link
             href="/#practices"
-            className="inline-flex items-center gap-2 text-white/80 hover:text-suddha-gold text-sm font-medium transition-all duration-200 bg-white/5 hover:bg-white/10 px-4 py-2 rounded-lg mb-8 group w-fit"
+            className="inline-flex items-center gap-2 text-white/90 hover:text-suddha-gold text-sm font-medium transition-all duration-200 bg-white/10 hover:bg-white/15 px-4 py-2 rounded-lg mb-8 group w-fit border border-white/20"
           >
             <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
             {tx(t.practiceDetail.backLabel, lang)}
@@ -58,7 +58,7 @@ export default function PracticeDetailClient({ practice, prevPractice, nextPract
                 <h1 className="font-display font-bold text-white text-4xl md:text-5xl lg:text-6xl leading-tight">
                   {title}
                 </h1>
-                <p className="text-white/70 text-sm tracking-wider uppercase mt-2">
+                <p className="text-white/85 text-sm tracking-wider uppercase mt-2">
                   {titleAlt}
                 </p>
               </div>
