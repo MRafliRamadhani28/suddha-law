@@ -71,7 +71,7 @@ export default function CommitmentSection() {
       {/* Full-bleed cinematic brand strip */}
       <div className="relative h-72 overflow-hidden">
         <Image
-          src="/images/Artboard-2.webp"
+          src="/images/DSC09191.webp"
           alt=""
           fill
           className="object-cover object-center"
